@@ -1,0 +1,50 @@
+{
+  "name": "wing-api",
+  "displayName": "wing-api",
+  "description": "Wing APIs for vscode extension",
+  "version": "0.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.wdf.sap.corp/devx-wing/theia-devx-extensions.git"
+  },
+  "publisher": "sap",
+  "engines": {
+    "vscode": "^1.44.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "*"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "workbench.view.scm",
+        "title": "Toggle Git Panel"
+      }
+    ]
+  },
+  "scripts": {
+    "prepare": "rimraf *.vsix && yarn build && yarn package",
+    "build": "tsc",
+    "package": "vsce package",
+    "test": "jest --config jest.config.unit.js --coverage --verbose --color",
+    "watch-test": "jest --config jest.config.unit.js --watch"
+  },
+  "dependencies": {
+    "js-base64": "2.5.1",
+    "tail": "2.0.2"
+  },
+  "devDependencies": {
+    "@types/js-base64": "2.3.1",
+    "@types/node": "^10.12.21",
+    "@types/tail": "^1.2.1",
+    "@types/vscode": "^1.44.0",
+    "rimraf": "^2.6.2",
+    "simple-extensions-types": "^0.1.5",
+    "typescript": "^3.9.2",
+    "vsce": "^1.78.0"
+  }
+}
